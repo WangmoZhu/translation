@@ -49,7 +49,7 @@ try {
         // alert("sadfa")
         // testAudio.load();
         // testAudio.play()
-        document.getElementById("play1").muted = false
+        // document.getElementById("play1").muted = false
         document.getElementById("play1").load();
         document.getElementById("play1").play();
         // alert("sadfasdasdasd")
