@@ -11,7 +11,9 @@
     <br>
     <br>
     <br>
-    <audio id="bgmusic" autoplay preload loop controls></audio>
+    <audio id="bgmusic" autoplay preload loop controls >
+        <source type="audio/mpeg" src="https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=hello world">
+    </audio>
     <script>
     (function() {
         function log(info) {
@@ -65,7 +67,7 @@
         window.addEventListener('touchstart', forceSafariPlayAudio, false);
 
         // audioEl.src = 'http://www.w3school.com.cn/i/song.mp3';
-        audioEl.src = "https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=hello world"
+        // audioEl.src = "https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=hello world"
     })();
     </script>
 </body>
