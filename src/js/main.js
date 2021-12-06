@@ -6,8 +6,8 @@ try {
     const testAudio = new Audio()
     alert(testAudio)
     testAudio.src = 'https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=' + text
-    testAudio.muted = false
-    testAudio.load();
+    // testAudio.muted = false
+    
 
     // const synth = window.speechSynthesis
     // const msg = new SpeechSynthesisUtterance()
@@ -36,9 +36,10 @@ try {
     function handleSpeak(e) {
         // msg.lang = voicesDropdown.selectedOptions[0].value
         // synth.speak(msg)
-        alert("sadfa")
+        // alert("sadfa")
+        testAudio.load();
         testAudio.play()
-        alert("sadfasdasdasd")
+        // alert("sadfasdasdasd")
     }
 
     // function handleChange(e) {
