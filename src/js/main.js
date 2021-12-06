@@ -53,6 +53,8 @@ try {
         // alert("sadfasdasdasd")
     }
 
+    document.addEventListener("touchstart", handleSpeak)
+
     // function handleChange(e) {
     //     msg[this.name] = this.value
     // }
