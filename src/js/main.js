@@ -55,7 +55,7 @@ try {
         // alert("sadfasdasdasd")
     }
 
-    document.addEventListener("touchstart", handleSpeak)
+    document.addEventListener("touchend", handleSpeak)
 
     // function handleChange(e) {
     //     msg[this.name] = this.value
