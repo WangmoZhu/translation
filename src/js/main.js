@@ -1,13 +1,26 @@
-(function (window) {   
+(function (window) {
 
     var text = ''
 
-    // const synth = window.speechSynthesis
-    // const msg = new SpeechSynthesisUtterance()
-    // let voices = []
+    const voicesDropdown = document.querySelector('[name="voice"]')
+    let voices = []
+    if (window.speechSynthesis) {
+        const synth = window.speechSynthesis
+        const msg = new SpeechSynthesisUtterance()
+        
+        synth.addEventListener('voiceschanged', getSupportVoices)
+        function getSupportVoices() {
+            voices = synth.getVoices()
+            voices.forEach(function (e) {
+                const option = document.createElement('option')
+                option.value = e.lang
+                option.text = e.name
+                voicesDropdown.appendChild(option)
+            })
+        }
+    }
+    
     const speakText = document.querySelector("#speakContent");
-    // const voicesDropdown = document.querySelector('[name="voice"]')
-    // // const options = document.querySelectorAll('[type="range"], [name="text"]')
     const speakButton = document.querySelector("#play")
     const searchButton = document.querySelector("#search")
 
@@ -15,20 +28,9 @@
     const source = document.createElement("source");
     source.setAttribute("type", "audio/mpeg")
     audio.appendChild(source);
-
-
     speakButton.addEventListener('click', handleSpeak)
     speakText.addEventListener("change", handleChange)
-    // synth.addEventListener('voiceschanged', getSupportVoices)
-    // function getSupportVoices() {
-    //     voices = synth.getVoices()
-    //     voices.forEach(function (e) {
-    //         const option = document.createElement('option')
-    //         option.value = e.lang
-    //         option.text = e.name
-    //         voicesDropdown.appendChild(option)
-    //     })
-    // }
+
 
     function handleSpeak(e) {
         // msg.lang = voicesDropdown.selectedOptions[0].value
