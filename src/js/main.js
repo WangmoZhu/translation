@@ -10,8 +10,8 @@ try {
     audio.setAttribute('id', 'audio');
     audio.setAttribute('autoplay', 'autoplay');
     audio.setAttribute('loop', 'loop');
-    // audio.innerHTML = '<source src="configs/play.mp3" type="audio/mpeg">';
-    audio.setAttribute("src", 'https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=' + text)
+    audio.innerHTML = '<source src="https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=你好" type="audio/mpeg">';
+    // audio.setAttribute("src", 'https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=' + text)
     //将audio节点追加到dom
     document.body.appendChild(audio);
     audio.load();
