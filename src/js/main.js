@@ -1,4 +1,6 @@
 (function (window) {
+try {
+    
 
     const text = '测试文字'
     const testAudio = new Audio()
@@ -47,6 +49,9 @@
                 last = now
             }
         }
+    }}
+    catch(e){
+        alert(e)
     }
 
     // /**
