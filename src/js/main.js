@@ -4,6 +4,7 @@ try {
 
     const text = '测试文字'
     const testAudio = new Audio()
+    alert(testAudio)
     testAudio.src = 'https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=' + text
     testAudio.muted = false
 
