@@ -48,7 +48,7 @@
         // u.lang = 'zh';
         // u.rate = 0.7
         // speechSynthesis.speak(u);
-        const synth = window.speechSynthesis
+        // const synth = window.speechSynthesis
         const msg = new SpeechSynthesisUtterance()
         let voices = []
         const voicesDropdown = document.querySelector('[name="voice"]')
@@ -59,7 +59,7 @@
         msg.text = '你好 给你点👍'
         msg.lang = 'zh-CN'
 
-        synth.addEventListener('voiceschanged', getSupportVoices)
+        // synth.addEventListener('voiceschanged', getSupportVoices)
         speakButton.addEventListener('click', throttle(handleSpeak, 1000))
         stopButton.addEventListener('click', handleStop)
         options.forEach(e => e.addEventListener('change', handleChange))
