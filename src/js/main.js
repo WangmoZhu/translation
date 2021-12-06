@@ -4,9 +4,10 @@
 
     const voicesDropdown = document.querySelector('[name="voice"]')
     let voices = []
+    var synth = null, msg = null;
     if (window.speechSynthesis) {
-        const synth = window.speechSynthesis
-        const msg = new SpeechSynthesisUtterance()
+        synth = window.speechSynthesis
+        msg = new SpeechSynthesisUtterance()
         
         synth.addEventListener('voiceschanged', getSupportVoices)
         function getSupportVoices() {
@@ -28,22 +29,27 @@
     const source = document.createElement("source");
     source.setAttribute("type", "audio/mpeg")
     audio.appendChild(source);
-    speakButton.addEventListener('click', handleSpeak)
+    speakButton.addEventListener('click', throttle(handleSpeak, 1000))
     speakText.addEventListener("change", handleChange)
 
 
     function handleSpeak(e) {
-        // msg.lang = voicesDropdown.selectedOptions[0].value
-        // synth.speak(msg)
-        // testAudio.load();
-        // testAudio.play()
-        source.setAttribute("src", "https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=" + text.trim());
-        audio.load();
-        audio.play();
+        if (synth) {
+            msg.lang = voicesDropdown.selectedOptions[0].value
+            synth.speak(msg)
+        }else{
+            source.setAttribute("src", "https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=" + text.trim());
+            audio.load();
+            audio.play();
+        }
     }
 
     function handleChange(e) {
-        text = this.value
+        if(synth){
+            msg[this.name] = this.value
+        }else{
+            text = this.value
+        }
     }
     function throttle(fn, delay) {
         let last = 0
