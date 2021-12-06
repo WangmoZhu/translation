@@ -1,6 +1,6 @@
 (function (window) {   
 
-    const text = '测试文字'
+    var text = ''
 
     // const synth = window.speechSynthesis
     // const msg = new SpeechSynthesisUtterance()
@@ -9,7 +9,7 @@
     // const voicesDropdown = document.querySelector('[name="voice"]')
     // // const options = document.querySelectorAll('[type="range"], [name="text"]')
     const speakButton = document.querySelector("#play")
-    // const searchButton = document.querySelector("#search")
+    const searchButton = document.querySelector("#search")
 
     const audio = new Audio();
     const source = document.createElement("source");
@@ -18,7 +18,7 @@
 
 
     speakButton.addEventListener('click', handleSpeak)
-    // speakText.addEventListener("change", handleChange)
+    speakText.addEventListener("change", handleChange)
     // synth.addEventListener('voiceschanged', getSupportVoices)
     // function getSupportVoices() {
     //     voices = synth.getVoices()
@@ -35,15 +35,14 @@
         // synth.speak(msg)
         // testAudio.load();
         // testAudio.play()
-        var text = speakText.getAttribute("value").trim();
-        source.setAttribute("src", "https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=" + text);
+        source.setAttribute("src", "https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=" + text.trim());
         audio.load();
         audio.play();
     }
 
-    // function handleChange(e) {
-    //     msg[this.name] = this.value
-    // }
+    function handleChange(e) {
+        text = this.value
+    }
     function throttle(fn, delay) {
         let last = 0
         return function () {
