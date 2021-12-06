@@ -3,11 +3,21 @@ try {
     
 
     const text = '测试文字'
-    const testAudio = new Audio()
-    alert(testAudio)
-    testAudio.src = 'https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=' + text
+    // const testAudio = new Audio()
+    // alert(testAudio)
     // testAudio.muted = false
+    var audio = document.createElement('audio');
+    audio.setAttribute('id', 'audio');
+    audio.setAttribute('autoplay', 'autoplay');
+    audio.setAttribute('loop', 'loop');
+    // audio.innerHTML = '<source src="configs/play.mp3" type="audio/mpeg">';
+    audio.setAttribute("src", 'https://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=5&&text=' + text)
+    //将audio节点追加到dom
+    document.body.appendChild(audio);
+    audio.load();
     
+	//iOS Safari可能是出于防止骚扰用户的考虑，首次非用户触发的play不会生效
+    audio.play();
 
     // const synth = window.speechSynthesis
     // const msg = new SpeechSynthesisUtterance()
@@ -37,8 +47,9 @@ try {
         // msg.lang = voicesDropdown.selectedOptions[0].value
         // synth.speak(msg)
         // alert("sadfa")
-        testAudio.load();
-        testAudio.play()
+        // testAudio.load();
+        // testAudio.play()
+        audio.play();
         // alert("sadfasdasdasd")
     }
 
