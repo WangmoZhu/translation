@@ -1,0 +1,107 @@
+body {
+    /* background-color: rgb(0,159,214); */
+    font: bold 1em/100% "Helvetica Neue", Arial, sans-serif;
+    padding: 2em 0;
+    text-align: center;
+    background-image:  url(https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.616pic.com%2Fbg_w1180%2F00%2F03%2F40%2Fye5eP3SlYC.jpg&refer=http%3A%2F%2Fpic.616pic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1641357744&t=974a378998964df564507cb28c4b5de0);
+    background-attachment:fixed;
+    background-repeat:no-repeat;
+    background-size:cover;
+    -moz-background-size:cover;
+    -webkit-background-size:cover;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .operation{
+    text-align: left;
+    margin-left: 1rem;
+}
+
+.operation select {
+    /* styling */
+    width: 92vw;
+    background-color: white;
+    /* border: thin solid blue; */
+    border-radius: 4px;
+    display: inline-block;
+    font: inherit;
+    line-height: 1.5em;
+    padding: 0.5em 3.5em 0.5em 1em;
+  
+    /* reset */
+  
+    margin: 0;      
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+  }
+
+.container #voice{
+    background-image:
+    linear-gradient(45deg, transparent 50%, gray 50%),
+    linear-gradient(135deg, gray 50%, transparent 50%),
+    linear-gradient(to right, #ccc, #ccc);
+    background-position:
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px),
+    calc(100% - 2.5em) 0.5em;
+    background-size:
+    5px 5px,
+    5px 5px,
+    1px 1.5em;
+    background-repeat: no-repeat;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.container button{
+      /* 给边框添加圆角 */
+      border-radius: 6px; 
+      /* 字母转大写 */
+      padding: 10px 26px;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border: 2px solid #008CBA;
+      background-color: #008CBA;
+      color: white;
+
+}
+
+textarea {
+    display: block;
+    margin-left: 1rem;
+    /* margin:0 auto; */
+    overflow: hidden;
+    width: 92vw;
+    /* font-size: 14px; */
+    height: 100px;
+    line-height: 24px;
+    padding:8px;
+    outline: 0 none;
+    box-sizing: border-box;
+    border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+    
+}
+
+.container .playBtn{
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    /* background: url(https://fanyi-cdn.cdn.bcebos.com/static/translation/img/translate/output/sound2x_d6f553d.gif); */
+}
+
+.container .playBtn{
+    margin: 1rem 0rem 0rem 1rem;
+}

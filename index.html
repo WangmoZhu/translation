@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="voiceinator">
+        <h1>听说 5000</h1>
+
+        <select name="voice" id="voices">
+            <option value="">Select A Voice</option>
+        </select>
+
+        <label for="rate">Rate:</label>
+        <input name="rate" type="range" min="0" max="3" value="1" step="0.1">
+
+        <label for="pitch">Pitch:</label>
+        <input name="pitch" type="range" min="0" max="2" step="0.1">
+
+        <textarea name="text">你好 给你点👍</textarea>
+
+        <button id="stop">Stop!</button>
+        <button id="speak">Speak</button>
+    </div>
+    <!-- <script src="http://cdn.javanx.cn/wp-content/themes/lensnews2.2/js/jquery.min.js?ver=3.1.1"></script> -->
+    <script typet="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+
+    <script>
+        //http://tts.youdao.com/fanyivoice?word=你好，我是你好&le=zh&keyfrom=speaker-target
+        // function audioPlay(text) {
+        //     var zhText = text;
+        //     zhText = encodeURI(zhText);
+        //     var audio = "<audio autoplay=\"autoplay\">" + "<source src=\"http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=4&text=" + zhText + "\" type=\"audio/mpeg\">" + "<embed height=\"0\" width=\"0\" src=\"http://tts.baidu.com/text2audio?text=" + zhText + "\">" + "</audio>";
+        //     $('body').append(audio);
+        // }
+        // // audioPlay('蛛网膜');
+        // var text = "peach"
+        // new Audio("http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=4&text=你好啊，听起来好憨啊").play()
+        // new Audio("https://fanyi.baidu.com/gettts?lan=uk&text=peach&spd=3&source=web").play();
+
+        // var u = new SpeechSynthesisUtterrance();
+        // u.text = "文字播放";
+        // u.lang = 'zh';
+        // u.rate = 0.7
+        // speechSynthesis.speak(u);
+        const synth = window.speechSynthesis
+        const msg = new SpeechSynthesisUtterance()
+        let voices = []
+        const voicesDropdown = document.querySelector('[name="voice"]')
+        const options = document.querySelectorAll('[type="range"], [name="text"]')
+        const speakButton = document.querySelector('#speak')
+        const stopButton = document.querySelector('#stop')
+
+        msg.text = '你好 给你点👍'
+        msg.lang = 'zh-CN'
+
+        synth.addEventListener('voiceschanged', getSupportVoices)
+        speakButton.addEventListener('click', throttle(handleSpeak, 1000))
+        stopButton.addEventListener('click', handleStop)
+        options.forEach(e => e.addEventListener('change', handleChange))
+
+        function getSupportVoices() {
+            voices = synth.getVoices()
+            voices.forEach(e => {
+                const option = document.createElement('option')
+                option.value = e.lang
+                option.text = e.name
+                voicesDropdown.appendChild(option)
+            })
+        }
+        function handleSpeak(e) {
+            msg.lang = voicesDropdown.selectedOptions[0].value
+            synth.speak(msg)
+        }
+        function handleStop(e) {
+            synth.cancel(msg)
+        }
+        function handleChange(e) {
+            msg[this.name] = this.value
+        }
+        function throttle(fn, delay) {
+            let last = 0
+            return function () {
+                const now = new Date()
+                if (now - last > delay) {
+                    fn.apply(this, arguments)
+                    last = now
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
