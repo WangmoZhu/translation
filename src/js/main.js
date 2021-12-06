@@ -34,6 +34,7 @@ try {
     function handleSpeak(e) {
         // msg.lang = voicesDropdown.selectedOptions[0].value
         // synth.speak(msg)
+        alert("sadfa")
         testAudio.play()
         alert("sadfasdasdasd")
     }
