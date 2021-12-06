@@ -17,7 +17,7 @@ try {
     // const searchButton = document.querySelector("#search")
 
 
-    speakButton.addEventListener('click', throttle(handleSpeak, 1000))
+    speakButton.addEventListener('click', handleSpeak)
     // speakText.addEventListener("change", handleChange)
     // synth.addEventListener('voiceschanged', getSupportVoices)
     // function getSupportVoices() {
