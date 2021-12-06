@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style>
+      .router{
+          width: 200px;
+          padding: 200px;
+      }
+  </style>
+</head>
+<body>
+  <div className="nav">
+    <button onclick="linkTo(1)">link1</button>
+    <button onclick="linkTo(2)">link2</button>
+  </div>
+  <div class="router" id="router-view">
+ 
+  </div>
+  <script type="text/javascript">
+    var view = document.getElementById('router-view');
+    function linkTo(link){
+      switch(link) {
+        case 1: {
+          window.history.pushState({a:1}, 'mylink1', '#link1');
+          view.innerHTML = 'link1 content';
+          break;
+        }
+        case 2: {
+          window.history.pushState({a:2}, 'mylink2', '#link2');
+          view.innerHTML = 'link2 conetnt';
+          break;
+        }
+        default: 
+          return;
+ 
+      }
+      return false;
+    }
+    window.addEventListener('popstate', function(e){
+      console.log(e);
+    })
+  </script>
+</body>
+</html>

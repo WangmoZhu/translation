@@ -13,10 +13,83 @@ body {
 
 .container{
     width: 100vw;
-    height: 100vh;
+    height: 80vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 6rem;
+    /* justify-content: center; */
+    /* align-content: center; */
+    flex-flow: column;
+    /* align-items: center; */
+    /* justify-items: center; */
+    /* background-color: #fff; */
+}
+
+/* 
+选项卡style
+*/
+.container .tab-wrap{
+    width: 92vw;
+    /* margin-bottom: 1rem; */
+    margin-left: 1rem;
+    text-align: left;
+}
+
+.container .tab-wrap label{
+    display: inline-block;
+    text-align: center;
+    width: 5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    line-height: 2;
+    box-sizing: border-box;
+    border-bottom: #008CBA 0px solid;
+    border-radius: 6px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+.container .tab-wrap .tab{
+    display: none;
+    opacity: 1;
+    transition: 0.5s opacity ease-in, 0.8s transform ease;
+    position: relative;
+    top: 0;
+    z-index: 100;
+    transform: translateY(0px);
+    text-shadow: 0 0 0;
+}
+
+.container .tab-wrap .tab:checked + label{
+    /* opacity: 1;
+    transition: 0.5s opacity ease-in, 0.8s transform ease;
+    position: relative; 
+    top: 0;
+    z-index: 100;
+    transform: translateY(0px);
+    text-shadow: 0 0 0; */
+    
+    /* color: red; */
+    /* background-color: #fff; */
+    border-bottom: #008CBA 2.5rem solid;
+    /* transform: translateY(0px); */
+    transition: 0.3s border-bottom ease-in;
+}
+
+/* 
+新增
+*/
+.container .form{
+    text-align: left;
+    color: white;
+}
+
+.container .form label{
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.container .form button{
+    margin-left: 1rem;
+    margin-top: 1rem;
 }
 
 .container .operation{
@@ -90,8 +163,8 @@ textarea {
     padding:8px;
     outline: 0 none;
     box-sizing: border-box;
-    border-color: rgba(82, 168, 236, 0.8);
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6);
+    /* border-color: rgba(82, 168, 236, 0.8);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 8px rgba(82, 168, 236, 0.6); */
     
 }
 
@@ -104,4 +177,8 @@ textarea {
 
 .container .playBtn{
     margin: 1rem 0rem 0rem 1rem;
+}
+
+.displayUI {
+    display: none;
 }
