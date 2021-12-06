@@ -5,6 +5,9 @@
         var text = ''
         // window.speechSynthesis = null
         const container = document.querySelector('#tabContent')
+        if(!location.hash){
+            location.hash = "#search"
+        }
         const label = document.querySelector(location.hash)
         const forName = label.getAttribute("for")
         const input = document.querySelector(`#${forName}`)
